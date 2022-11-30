@@ -1,7 +1,12 @@
 import css from '../Feedback/FeedbackStats.module.css';
+import { FeedbackNotification } from './FeedbackNotification';
 
-export const FeedbackStats = ({ good, neutral, bad, total, positivePercentage }) => {
-  return (
+export const FeedbackStats = ({ options: { good, neutral, bad } }) => {
+
+  const total = good + neutral + bad;
+  const positivePercentage = Math.round((good / total) * 100);
+
+  if (total > 0) return (
     <>
       <h2>Statistics</h2>
       <p>
@@ -21,4 +26,6 @@ export const FeedbackStats = ({ good, neutral, bad, total, positivePercentage })
       </p>
     </>
   );
+
+  return <FeedbackNotification message="No feedback given" />
 };

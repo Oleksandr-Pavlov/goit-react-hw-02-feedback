@@ -1,19 +1,32 @@
 import css from '../Feedback/FeedbackControls.module.css';
 
 export const FeedbackControls = ({
-  onGoodFeedback,
-  onNeutralFeedback,
-  onBadFeedback,
+  onGetFeedback
 }) => {
   return (
     <div className={css.buttonWrapper}>
-      <button type="button" onClick={onGoodFeedback} className={css.button}>
+      <button
+        type="button"
+        name="good"
+        onClick={onGetFeedback}
+        className={css.button}
+      >
         Good
       </button>
-      <button type="button" onClick={onNeutralFeedback} className={css.button}>
+      <button
+        type="button"
+        name="neutral"
+        onClick={onGetFeedback}
+        className={css.button}
+      >
         Neutral
       </button>
-      <button type="button" onClick={onBadFeedback} className={css.button}>
+      <button
+        type="button"
+        name="bad"
+        onClick={onGetFeedback}
+        className={css.button}
+      >
         Bad
       </button>
     </div>
