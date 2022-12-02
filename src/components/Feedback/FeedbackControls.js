@@ -1,8 +1,7 @@
+import PropTypes from 'prop-types';
 import css from '../Feedback/FeedbackControls.module.css';
 
-export const FeedbackControls = ({
-  onGetFeedback
-}) => {
+export const FeedbackControls = ({ onGetFeedback }) => {
   return (
     <div className={css.buttonWrapper}>
       <button
@@ -32,3 +31,7 @@ export const FeedbackControls = ({
     </div>
   );
 };
+
+FeedbackControls.propTypes = {
+  onGetFeedback: PropTypes.func.isRequired,
+}

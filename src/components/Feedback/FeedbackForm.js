@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { FeedbackControls } from './FeedbackControls';
 import { FeedbackSection } from './FeedbackSection';
@@ -13,7 +14,11 @@ export class FeedbackForm extends Component {
   };
 
   static propTypes = {
-    //
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
   };
 
   state = {
@@ -22,7 +27,7 @@ export class FeedbackForm extends Component {
     bad: this.props.bad,
   };
 
-  handleFeedback = (e) => {
+  handleFeedback = e => {
     const { name } = e.currentTarget;
     this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
@@ -31,9 +36,9 @@ export class FeedbackForm extends Component {
     const { good, neutral, bad } = this.state;
 
     return (
-      <FeedbackSection>
-        <FeedbackControls onGetFeedback={this.handleFeedback}/>
-        <FeedbackStats options={{good, neutral, bad}}/>
+      <FeedbackSection title="Please leave feedback">
+        <FeedbackControls onGetFeedback={this.handleFeedback} />
+        <FeedbackStats options={{ good, neutral, bad }} />
       </FeedbackSection>
     );
   }
