@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const FeedbackSection = ({ title, children }) => {
+export const Section = ({ title, children }) => {
   return (
     <div>
       <h2>{title}</h2>
@@ -9,7 +9,7 @@ export const FeedbackSection = ({ title, children }) => {
   );
 };
 
-FeedbackSection.propTypes = {
+Section.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired
 }

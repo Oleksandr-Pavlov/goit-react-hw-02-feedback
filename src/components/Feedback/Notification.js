@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-export const FeedbackNotification = ({ message }) => {
+export const Notification = ({ message }) => {
   return <p>{message}</p>;
 };
 
-FeedbackNotification.propTypes = {
+Notification.propTypes = {
   message: PropTypes.string.isRequired
 }

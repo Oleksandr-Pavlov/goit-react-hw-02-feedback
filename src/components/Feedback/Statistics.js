@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import css from '../Feedback/FeedbackStats.module.css';
-import { FeedbackNotification } from './FeedbackNotification';
+import css from '../Feedback/Statistics.module.css';
+import { Notification } from './Notification';
 
-export const FeedbackStats = ({ options: { good, neutral, bad } }) => {
+export const Statistics = ({ options: { good, neutral, bad } }) => {
   const total = good + neutral + bad;
   const positivePercentage = Math.round((good / total) * 100);
 
@@ -23,16 +23,15 @@ export const FeedbackStats = ({ options: { good, neutral, bad } }) => {
           Total: <span className={css.stat}>{total}</span>
         </p>
         <p>
-          Positive feedback:{' '}
-          <span className={css.stat}>{positivePercentage}%</span>
+          Positive feedback: <span className={css.stat}>{positivePercentage}%</span>
         </p>
       </>
     );
 
-  return <FeedbackNotification message="No feedback given" />;
+  return <Notification message="No feedback given" />;
 };
 
-FeedbackStats.propTypes = {
+Statistics.propTypes = {
   options: PropTypes.shape({
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,

@@ -1,29 +1,29 @@
 import PropTypes from 'prop-types';
-import css from '../Feedback/FeedbackControls.module.css';
+import css from '../Feedback/FeedbackOptions.module.css';
 
-export const FeedbackControls = ({ onGetFeedback }) => {
+export const FeedbackOptions = ({ options, onLeaveFeedback } ) => {
   return (
     <div className={css.buttonWrapper}>
       <button
         type="button"
-        name="good"
-        onClick={onGetFeedback}
+        name={options[0]}
+        onClick={onLeaveFeedback}
         className={css.button}
       >
         Good
       </button>
       <button
         type="button"
-        name="neutral"
-        onClick={onGetFeedback}
+        name={options[1]}
+        onClick={onLeaveFeedback}
         className={css.button}
       >
         Neutral
       </button>
       <button
         type="button"
-        name="bad"
-        onClick={onGetFeedback}
+        name={options[2]}
+        onClick={onLeaveFeedback}
         className={css.button}
       >
         Bad
@@ -32,6 +32,7 @@ export const FeedbackControls = ({ onGetFeedback }) => {
   );
 };
 
-FeedbackControls.propTypes = {
-  onGetFeedback: PropTypes.func.isRequired,
+FeedbackOptions.propTypes = {
+  options: PropTypes.array.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 }
